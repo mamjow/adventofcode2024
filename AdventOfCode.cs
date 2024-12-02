@@ -3,6 +3,18 @@ using App;
 namespace AdventOfCode;
 public class AdventOfCodeChallenge
 {
+
+    public static ISolve GetDayInstance(int dayNumber)
+    {
+        string className = $"Days.Day{dayNumber}";
+        Type dayType = Type.GetType(className);
+        if (dayType == null || !typeof(ISolve).IsAssignableFrom(dayType))
+            return null;
+
+        return (ISolve)Activator.CreateInstance(dayType);
+    }
+
+
     public static void SolveEventChallenge(ISolve solution)
     {
         var day = solution.GetType().Name;
