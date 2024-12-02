@@ -1,9 +1,17 @@
 ﻿using AdventOfCode;
 using App;
 
+var mode = Environment.GetEnvironmentVariable("APP_MODE");
+var dayNumber = 2;
+var parsed = true;
 
-Console.WriteLine("Enter a day (1-29): ");
-if (int.TryParse(Console.ReadLine(), out int dayNumber) && dayNumber >= 1 && dayNumber <= 29)
+if (mode != "DEBUG")
+{
+    Console.WriteLine("Enter a day (1-29): ");
+    parsed = int.TryParse(Console.ReadLine(), out dayNumber);
+}
+
+if (parsed && dayNumber >= 1 && dayNumber <= 29)
 {
     Console.WriteLine($"Presenting day {dayNumber} challenge.");
     ISolve solution = AdventOfCodeChallenge.GetDayInstance(dayNumber);

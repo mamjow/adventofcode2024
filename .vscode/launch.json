@@ -13,7 +13,10 @@
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
-            "console": "internalConsole"
+            "console": "internalConsole",
+            "env": {
+                "APP_MODE": "DEBUG"
+            },
         }
     ]
 }
