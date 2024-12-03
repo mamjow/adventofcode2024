@@ -1,17 +1,5 @@
-<html>
-
-<head>
-    <style>
-        body {
-            background: #0f0f23;
-            /*337 x 5*/
-            color: #cccccc;
-            font-family: "Source Code Pro", monospace;
-            font-weight: 300;
-            font-size: 14pt;
-            min-width: 60em;
-        }
-
+<svg viewBox="0 0 1028 1656" xmlns="http://www.w3.org/2000/svg">
+   <style>
         a {
             outline: 0;
         }
@@ -135,9 +123,11 @@
             color: #ffff66;
         }
     </style>
-</head>
 
-<body>
+
+
+  <foreignObject x="0" y="0" width="1028" height="1656">
+    <div xmlns="http://www.w3.org/1999/xhtml">
     <pre class="calendar">
 <a aria-label="Day 1, two stars"  class="calendar-day1 calendar-verycomplete">       <span class="calendar-color-w">.--'</span><span class="calendar-color-3s">~</span> <span class="calendar-color-3s">~</span> <span class="calendar-color-3s">~</span><span class="calendar-color-w">|</span>        <span class="calendar-color-w">.-'</span> <span class="calendar-color-6y">*</span>       <span class="calendar-color-8n">\</span>  <span class="calendar-color-8n">/</span>     <span class="calendar-color-w">'-.</span>  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 2, two stars"  class="calendar-day2 calendar-verycomplete">    <span class="calendar-color-w">.--'</span><span class="calendar-color-3s">~</span>  <span class="calendar-color-3g">,</span><span class="calendar-color-3y">*</span> <span class="calendar-color-3s">~</span> <span class="calendar-color-w">|</span>        <span class="calendar-color-w">|</span>  <span class="calendar-color-6b">&gt;</span><span class="calendar-color-6o">o</span><span class="calendar-color-6b">&lt;</span>   <span class="calendar-color-8n">\_\_\|_/__/</span>   <span class="calendar-color-w">|</span>  <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>         
@@ -165,6 +155,6 @@
 <span aria-hidden="true" class="calendar-day24">                                                   <span class="calendar-day">24</span></span>
 <span aria-hidden="true" class="calendar-day25">                                                   <span class="calendar-day">25</span></span>
         </pre>
-</body>
-
-</html>
+    </div>
+  </foreignObject>
+</svg>

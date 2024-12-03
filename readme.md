@@ -6,4 +6,4 @@
 |[Day 2: Red-Nosed Reports](https://adventofcode.com/2024/day/2)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day2.cs)   | C#       | :star: :star: |   
 |[Day 3: Mull It Over](https://adventofcode.com/2024/day/3)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day3.cs)   | C#       | :star: :star: |   
 
-![s](img_00001.svg)
+![](img.svg)
