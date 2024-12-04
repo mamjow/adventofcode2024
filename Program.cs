@@ -2,7 +2,7 @@
 using App;
 
 var mode = Environment.GetEnvironmentVariable("APP_MODE");
-var dayNumber = 3;
+var dayNumber = 4;
 var parsed = true;
 
 if (mode != "DEBUG")
