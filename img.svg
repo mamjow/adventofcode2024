@@ -72,6 +72,8 @@
             color: #009900;
         }
 
+.calendar .calendar-color-2g2 { color:#7fbd39; }
+
         .calendar {
             cursor: default;
             -webkit-user-select: none;
