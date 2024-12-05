@@ -9,25 +9,24 @@ public class Day4 : ISolve
         var countH = CountHorizontals(input);
         var countV = CountVerticals(input);
         var countD = CountDiagonal(input);
-
-        return "";
+        var neWinput = ReverseYaxis(input);
+        var countDasd = CountDiagonal(neWinput);
+        return $"{countH + countV + countD + countDasd}";
     }
     public string SolvePartTwo(string[] input)
     {
-        var countOccurance = 0;
-        foreach (var inputItem in input)
+        var listAllOccurancesOfA = new List<(int, int)>();
+        for (int i = 0; i < input.Length; i++)
         {
-            var remainingTxt = inputItem;
-            while (remainingTxt.Contains("SAMX") || remainingTxt.Contains("XMAS"))
+            for (int j = 0; j < input[i].Length; j++)
             {
-
-                var firstOccurance = Math.Min(remainingTxt.IndexOf("XMAS"), remainingTxt.IndexOf("SAMX"));
-                remainingTxt = remainingTxt.Substring(firstOccurance);
-                countOccurance++;
+                if (input[i][j] == 'A')
+                {
+                    listAllOccurancesOfA.Add((i, j));
+                }
             }
-
         }
-        return $"{countOccurance}";
+        return $"{listAllOccurancesOfA.Where(x => checkIfShapeX(input, x.Item1, x.Item2)).Count()}";
     }
 
     public int CountHorizontals(string[] lines)
@@ -69,12 +68,23 @@ public class Day4 : ISolve
         return newList;
     }
 
+    private static string[] ReverseYaxis(string[] lines)
+    {
+        var newList = Enumerable.Repeat(string.Empty, lines.Length).ToArray();
+        for (int i = 0; i < lines.Length; i++)
+        {
+            char[] charArray = lines[i].ToCharArray();
+            Array.Reverse(charArray);
+            newList[i] = new string(charArray);
+        }
+        return newList;
+    }
+
     public int CountDiagonal(string[] lines)
     {
         var completeList = new List<string>();
-        // Horitonzal increasing & increasing
-        var tempHorizontalList = Enumerable.Repeat(string.Empty, lines[0].Length).ToArray();
-        // increasing
+        // Horitonzal increasing 
+        var tempList = Enumerable.Repeat(string.Empty, lines[0].Length).ToArray();
         for (int i = 0; i < lines[0].Length; i++)
         {
             bool outOfIndexRangeExThrown = false;
@@ -85,7 +95,7 @@ public class Day4 : ISolve
             {
                 try
                 {
-                    tempHorizontalList[i] = tempHorizontalList[i] + lines[readingI][readingJ];
+                    tempList[i] = tempList[i] + lines[readingI][readingJ];
                     readingJ++;
                     readingI++;
                 }
@@ -95,35 +105,12 @@ public class Day4 : ISolve
                 }
             }
         }
-        completeList.AddRange(tempHorizontalList);
-        // Horitonzal increasing & increasing
-        tempHorizontalList = Enumerable.Repeat(string.Empty, lines[0].Length).ToArray();
-        // decreasing
-        for (int i = lines[0].Length - 1; i >= 0; i--)
-        {
-            bool outOfIndexRangeExThrown = false;
+        completeList.AddRange(tempList);
 
-            var readingJ = i;
-            var readingI = lines[0].Length;
-            while (!outOfIndexRangeExThrown)
-            {
-                try
-                {
-                    tempHorizontalList[i] = tempHorizontalList[i] + lines[readingI][readingJ];
-                    readingJ++;
-                    readingI--;
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    outOfIndexRangeExThrown = true;
-                }
-            }
-        }
-        completeList.AddRange(tempHorizontalList);
 
-        // Vertical increasing & dec
+        // Vertical increasing 
         // increasing
-        tempHorizontalList = Enumerable.Repeat(string.Empty, lines.Length).ToArray();
+        tempList = Enumerable.Repeat(string.Empty, lines.Length).ToArray();
         for (int i = 1; i < lines.Length; i++)
         {
             bool outOfIndexRangeExThrown = false;
@@ -133,7 +120,7 @@ public class Day4 : ISolve
             {
                 try
                 {
-                    tempHorizontalList[i] = tempHorizontalList[i] + lines[readingI][readingJ];
+                    tempList[i] = tempList[i] + lines[readingI][readingJ];
                     readingJ++;
                     readingI++;
                 }
@@ -144,33 +131,23 @@ public class Day4 : ISolve
             }
         }
 
-        completeList.AddRange(tempHorizontalList);
-        // Horitonzal increasing & increasing
-        tempHorizontalList = Enumerable.Repeat(string.Empty, lines[0].Length).ToArray();
-        // decreasing
-        for (int i = lines[0].Length - 1; i >= 0; i--)
+        completeList.AddRange(tempList);
+        string[] a = completeList.ToArray();
+        return CountHorizontals(a);
+    }
+
+    public bool checkIfShapeX(string[] line, int i, int j)
+    {
+        // check all neigheb
+        try
         {
-            bool outOfIndexRangeExThrown = false;
-
-            // var readingJ = 0;
-            // var readingI = i;
-            var readingJ = i;
-            var readingI = lines[0].Length;
-            while (!outOfIndexRangeExThrown)
-            {
-                try
-                {
-                    tempHorizontalList[i] = tempHorizontalList[i] + lines[readingI][readingJ];
-                    readingJ++;
-                    readingI--;
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    outOfIndexRangeExThrown = true;
-                }
-            }
+            var d1 = $"{line[i - 1][j - 1]}{line[i][j]}{line[i + 1][j + 1]}";
+            var d2 = $"{line[i + 1][j - 1]}{line[i][j]}{line[i - 1][j + 1]}";
+            return (d1 == "SAM" || d1 == "MAS") && (d2 == "SAM" || d2 == "MAS");
         }
-
-        return 0;
+        catch (IndexOutOfRangeException)
+        {
+            return false;
+        }
     }
 }
