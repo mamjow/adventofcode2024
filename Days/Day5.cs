@@ -20,21 +20,80 @@ public class Day5 : ISolve
 
         return $"{CountGoodUpdates()}";
     }
+    public string SolvePartTwo(string[] input)
+    {
+        _pageNumbers.Clear();
+        _updates.Clear(); ;
+        for (int i = 0; i < input.Length; i++)
+        {
+            ProcessLine(input, _pageNumbers, i);
+        }
 
+        return $"{CountGoodUpdates(true)}";
+    }
     public int CountGoodUpdates(bool correction = false)
     {
 
         var count = 0;
         foreach (var update in _updates)
         {
-            if (IsGoodOrder(update) && correction)
+            if (IsGoodOrder(update) && !correction)
             {
-                 count += TakeMiddel(update);
-
-
+                count += TakeMiddel(update);
+            }
+            else if (!IsGoodOrder(update) && correction)
+            {
+                count += TakeMiddel(FixUpdate(update));
             }
         }
         return count;
+    }
+
+    private List<int> FixUpdate(List<int> update)
+    {
+        var correcctedLIst = new List<int>();
+        var recheck = false;
+        for (int i = 0; i < update.Count; i++)
+        {
+            if (recheck)
+            {
+                i = 0;
+                recheck = false;
+            }
+            int nr = update[i];
+            var pageNumer = _pageNumbers.FirstOrDefault(x => x.PageNumber == nr);
+            if (pageNumer == null)
+            {
+                continue;
+            }
+            var after = update[(i + 1)..];
+            var before = update[..i];
+            if (before.Any(pageNumer.PageNumbersAfter.Contains))
+            {
+                recheck = true;
+                var BadpagesInBefore = pageNumer.PageNumbersAfter.Where(before.Contains).ToList();
+                var pagesInBeforeGoodORder = before.Where(x => !pageNumer.PageNumbersAfter.Contains(x)).ToList();
+                before = pagesInBeforeGoodORder;
+                after.InsertRange(0, BadpagesInBefore);
+            }
+            if (after.Any(pageNumer.PageNumbersBefore.Contains))
+            {
+                recheck = true;
+                var BadpagesInAfter = pageNumer.PageNumbersBefore.Where(after.Contains).ToList();
+                var pagesInAfterGoodORder = after.Where(x => !pageNumer.PageNumbersBefore.Contains(x)).ToList();
+                after = pagesInAfterGoodORder;
+                before.InsertRange(0, BadpagesInAfter);
+            }
+
+            if (recheck)
+            {
+                correcctedLIst = before;
+                correcctedLIst.Add(nr);
+                correcctedLIst.AddRange(after);
+                update = correcctedLIst;
+            }
+        }
+        return update;
     }
 
     private int TakeMiddel(List<int> update)
@@ -98,6 +157,7 @@ public class Day5 : ISolve
         _ = int.TryParse(pagenumberInput.Groups[1].Value, out var pageNrPefore);
         _ = int.TryParse(pagenumberInput.Groups[2].Value, out var pageNrNext);
 
+        // Find page before and add next nr to its list and also reverse
         var pageBefore = _pageNumbers.Where(p => p.PageNumber == pageNrPefore).FirstOrDefault();
         if (pageBefore != null)
         {
@@ -107,7 +167,8 @@ public class Day5 : ISolve
         {
             _pageNumbers.Add(new PageNumbers() { PageNumber = pageNrPefore, PageNumbersAfter = [pageNrNext] });
         }
-
+        // ALso add that 
+        // find page after and add record to its pages before
         var pageAfter = _pageNumbers.Where(p => p.PageNumber == pageNrNext).FirstOrDefault();
         if (pageAfter != null)
         {
@@ -119,18 +180,7 @@ public class Day5 : ISolve
         }
     }
 
-    public string SolvePartTwo(string[] input)
-    {
-        _pageNumbers.Clear();
-        _updates.Clear(); ;
-        for (int i = 0; i < input.Length; i++)
-        {
-            ProcessLine(input, _pageNumbers, i);
 
-        }
-
-        return $"{CountGoodUpdates(false)}";
-    }
 
 }
 

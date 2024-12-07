@@ -41,9 +41,9 @@ public class AdventOfCodeChallenge
             Console.WriteLine($"\tPart Two Test: {solution.SolvePartTwo(gamesTestinput)}");
             Console.WriteLine($"\tPart Two: {solution.SolvePartTwo(gamesinput)}");
         }
-        catch (System.Exception)
+        catch (System.Exception e)
         {
-            Console.WriteLine($"\tNo Implementation is available");
+            Console.WriteLine($"{e}");
         }
 
     }
