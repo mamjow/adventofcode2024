@@ -20,6 +20,7 @@ public class Day5 : ISolve
 
         return $"{CountGoodUpdates()}";
     }
+
     public string SolvePartTwo(string[] input)
     {
         _pageNumbers.Clear();
@@ -31,6 +32,7 @@ public class Day5 : ISolve
 
         return $"{CountGoodUpdates(true)}";
     }
+
     public int CountGoodUpdates(bool correction = false)
     {
 
@@ -179,9 +181,6 @@ public class Day5 : ISolve
             _pageNumbers.Add(new PageNumbers() { PageNumber = pageNrNext, PageNumbersBefore = [pageNrPefore] });
         }
     }
-
-
-
 }
 
 public class PageNumbers
