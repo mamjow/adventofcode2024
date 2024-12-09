@@ -9,7 +9,8 @@
                 "build",
                 "${workspaceFolder}/adventofcode2024.csproj",
                 "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary",
+  
             ],
             "problemMatcher": "$msCompile"
         },
