@@ -2,32 +2,50 @@
 using App;
 
 var mode = Environment.GetEnvironmentVariable("APP_MODE");
-var dayNumber = 6;
+int dayNumber = 8;
 var parsed = true;
+var input = dayNumber.ToString();
 
-if (mode != "DEBUG")
+while (true)
 {
-    Console.WriteLine("Enter a day (1-29): ");
-    parsed = int.TryParse(Console.ReadLine(), out dayNumber);
-}
-
-if (parsed && dayNumber >= 1 && dayNumber <= 29)
-{
-    Console.WriteLine($"Presenting day {dayNumber} challenge.");
-    ISolve solution = AdventOfCodeChallenge.GetDayInstance(dayNumber);
-
-    if (solution != null)
+    if (mode != "DEBUG")
     {
-        AdventOfCodeChallenge.SolveEventChallenge(solution);
+        Console.WriteLine("Enter a day (1-25) to play, or 'x' to exit: ");
+        parsed = int.TryParse(Console.ReadLine(), out dayNumber);
+    }
+
+    // Exit condition
+    if (input?.ToLower() == "x")
+    {
+        Console.WriteLine("Exiting the program. Goodbye!");
+        break;
+    }
+
+    parsed = int.TryParse(input, out dayNumber);
+
+    if (parsed && dayNumber >= 1 && dayNumber <= 25)
+    {
+        Console.WriteLine($"Presenting day {dayNumber} challenge.");
+        ISolve solution = AdventOfCodeChallenge.GetDayInstance(dayNumber);
+
+        if (solution != null)
+        {
+            AdventOfCodeChallenge.SolveEventChallenge(solution);
+        }
+        else
+        {
+            Console.WriteLine("Solution not found for the entered day.");
+        }
     }
     else
     {
-        Console.WriteLine("Solution not found for the entered day.");
+        Console.WriteLine("Invalid input. Please enter a number between 1 and 29, or 'x' to exit.");
     }
-}
-else
-{
-    Console.WriteLine("Invalid input. Please enter a number between 1 and 29.");
+    
+    if (mode == "DEBUG")
+    {
+        break;
+    }
 }
 
 // Console.ReadLine();
