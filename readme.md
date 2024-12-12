@@ -7,5 +7,8 @@
 |[Day 3: Mull It Over](https://adventofcode.com/2024/day/3)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day3.cs)   | C#       | :star: :star: |   
 |[Day 4: Ceres Search](https://adventofcode.com/2024/day/4)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day4.cs)   | C#       | :star: :star: |  
 |[Day 5: Print Queue](https://adventofcode.com/2024/day/5)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day5.cs)   | C#       | :star: :star: |  
+|[Day 6: Guard Gallivant](https://adventofcode.com/2024/day/6)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day6.cs)   | C#       | :star: :star: | 
+|[Day 7: Bridge Repair](https://adventofcode.com/2024/day/7)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day7.cs)   | C#       | :star: :star: | 
+|[Day 8: Resonant Collinearity](https://adventofcode.com/2024/day/8)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day8.cs)   | C#       | :star: :star: | 
 
 ![track](img.svg)
