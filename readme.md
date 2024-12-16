@@ -10,5 +10,7 @@
 |[Day 6: Guard Gallivant](https://adventofcode.com/2024/day/6)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day6.cs)   | C#       | :star: :star: | 
 |[Day 7: Bridge Repair](https://adventofcode.com/2024/day/7)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day7.cs)   | C#       | :star: :star: | 
 |[Day 8: Resonant Collinearity](https://adventofcode.com/2024/day/8)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day8.cs)   | C#       | :star: :star: | 
+|[Day 9: Disk Fragmenter](https://adventofcode.com/2024/day/9)    | [🔒](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day9.cs)   | C#       | :question: :question: | 
+|[Day 10: Hoof It](https://adventofcode.com/2024/day/10)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day10.cs)   | C#       | :star: :star: | 
 
 ![track](img.svg)
