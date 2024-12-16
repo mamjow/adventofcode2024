@@ -8,13 +8,13 @@ namespace Days;
 
 public class Day8 : ISolve
 {
-    Dictionary<char, List<(int, int)>> availbleFrequencies = new Dictionary<char, List<(int, int)>>();
-    HashSet<(int, int)> uniquePairs = new();
+    Dictionary<char, List<(int, int)>> _availbleFrequencies = new Dictionary<char, List<(int, int)>>();
+    HashSet<(int, int)> _uniquePairs = new();
 
     public string SolvePartOne(string[] input)
     {
-        availbleFrequencies.Clear();
-        uniquePairs.Clear();
+        _availbleFrequencies.Clear();
+        _uniquePairs.Clear();
         var array = input.Select(x => x.ToArray()).ToArray();
 
         for (int i = 0; i < array.Length; i++)
@@ -33,15 +33,15 @@ public class Day8 : ISolve
 
         // remove margin
         // lenght of b
-        var res = this.uniquePairs.Where(x => x.Item1 >= 0 && x.Item2 >= 0 && x.Item1 < input.Length && x.Item2 < input[0].Length).Count();
+        var res = this._uniquePairs.Where(x => x.Item1 >= 0 && x.Item2 >= 0 && x.Item1 < input.Length && x.Item2 < input[0].Length).Count();
         return $"{res}";
     }
 
 
     public string SolvePartTwo(string[] input)
     {
-        availbleFrequencies.Clear();
-        uniquePairs.Clear();
+        _availbleFrequencies.Clear();
+        _uniquePairs.Clear();
         var array = input.Select(x => x.ToArray()).ToArray();
 
         for (int i = 0; i < array.Length; i++)
@@ -64,7 +64,7 @@ public class Day8 : ISolve
 
         // remove margin
         // lenght of b
-        var res = this.uniquePairs.Where(x => x.Item1 >= 0 && x.Item2 >= 0 && x.Item1 < xLimit && x.Item2 < yLimit).Count();
+        var res = this._uniquePairs.Where(x => x.Item1 >= 0 && x.Item2 >= 0 && x.Item1 < xLimit && x.Item2 < yLimit).Count();
         var print = false;
         if (print)
         {
@@ -82,7 +82,7 @@ public class Day8 : ISolve
             for (int j = 0; j < array[i].Length; j++)
             {
 
-                if (uniquePairs.Contains((i, j)))
+                if (_uniquePairs.Contains((i, j)))
                 {
                     sb.Append('#');
                 }
@@ -99,7 +99,7 @@ public class Day8 : ISolve
 
     private void FindPairsAndAddAntinodes()
     {
-        foreach (KeyValuePair<char, List<(int, int)>> entry in availbleFrequencies)
+        foreach (KeyValuePair<char, List<(int, int)>> entry in _availbleFrequencies)
         {
             var coordiantes = entry.Value;
             for (int i = 0; i < coordiantes.Count; i++)
@@ -110,15 +110,15 @@ public class Day8 : ISolve
                     var a = coordiantes[i];
                     var b = coordiantes[j];
                     var antinode = FindAlineVector(a, b);
-                    uniquePairs.Add((b.Item1 + antinode.Item1, b.Item2 + antinode.Item2));
-                    uniquePairs.Add((a.Item1 - antinode.Item1, a.Item2 - antinode.Item2));
+                    _uniquePairs.Add((b.Item1 + antinode.Item1, b.Item2 + antinode.Item2));
+                    _uniquePairs.Add((a.Item1 - antinode.Item1, a.Item2 - antinode.Item2));
                 }
             }
         }
     }
     private void FindPairsAndAddAntinodesExtended(int xLimit, int yLimit)
     {
-        foreach (KeyValuePair<char, List<(int, int)>> entry in availbleFrequencies)
+        foreach (KeyValuePair<char, List<(int, int)>> entry in _availbleFrequencies)
         {
             var coordiantes = entry.Value;
             for (int i = 0; i < coordiantes.Count; i++)
@@ -129,22 +129,22 @@ public class Day8 : ISolve
                     var a = coordiantes[i];
                     var b = coordiantes[j];
                     var antinode = FindAlineVector(a, b);
-                    uniquePairs.Add((b.Item1 + antinode.Item1, b.Item2 + antinode.Item2));
-                    uniquePairs.Add((a.Item1 - antinode.Item1, a.Item2 - antinode.Item2));
+                    _uniquePairs.Add((b.Item1 + antinode.Item1, b.Item2 + antinode.Item2));
+                    _uniquePairs.Add((a.Item1 - antinode.Item1, a.Item2 - antinode.Item2));
                     var multiplier = 1;
                     while (multiplier < xLimit && multiplier < yLimit)
                     {
                         multiplier++;
                         var extendedAntiNode = FindAlineVector(a, b, multiplier);
-                        uniquePairs.Add((b.Item1 + extendedAntiNode.Item1, b.Item2 + extendedAntiNode.Item2));
-                        uniquePairs.Add((a.Item1 - extendedAntiNode.Item1, a.Item2 - extendedAntiNode.Item2));
+                        _uniquePairs.Add((b.Item1 + extendedAntiNode.Item1, b.Item2 + extendedAntiNode.Item2));
+                        _uniquePairs.Add((a.Item1 - extendedAntiNode.Item1, a.Item2 - extendedAntiNode.Item2));
                     }
 
                 }
                 // plus the antenna itself
                 if (coordiantes.Count > 1)
                 {
-                    this.uniquePairs.Add(coordiantes[i]);
+                    this._uniquePairs.Add(coordiantes[i]);
                 }
             }
         }
@@ -162,13 +162,13 @@ public class Day8 : ISolve
     }
     public void AddFreqLocation(char frequency, (int, int) location)
     {
-        if (availbleFrequencies.ContainsKey(frequency))
+        if (_availbleFrequencies.ContainsKey(frequency))
         {
-            availbleFrequencies[frequency].Add(location);
+            _availbleFrequencies[frequency].Add(location);
         }
         else
         {
-            availbleFrequencies.Add(frequency, new() { location });
+            _availbleFrequencies.Add(frequency, new() { location });
         }
     }
 }
