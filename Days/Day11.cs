@@ -5,65 +5,116 @@ namespace Days;
 public class Day11 : ISolve
 {
 
-
     public string SolvePartOne(string[] input)
     {
-        // Input has only one line
+        //Input has only one line
         var listStones = input[0].Split(" ").Select(long.Parse).ToArray();
-
-        for (long i = 0; i < 25; i++)
+        var dicStones = new Dictionary<long, long>();
+        foreach (var stone in listStones)
         {
-            listStones = Blink(listStones);
-        }
-        return $"{listStones.Count()}";
-    }
+            if (dicStones.ContainsKey(stone))
+            {
+                dicStones[stone] += 1;
+            }
+            else
+            {
+                dicStones[stone] = 1;
+            }
+        } 
 
-
-    public string SolvePartTwo(string[] input)
-    {
-        var listStones = input[0].Split(" ").Select(long.Parse).ToArray();
-
-        var count = 0;
-
-        for (long i = 0; i < 75; i++)
+        for (long j = 0; j < 25; j++)
         {
-            listStones = Blink(listStones);
+            dicStones = Blink(dicStones);
         }
+        var count = dicStones.Values.Sum();;
 
         return $"{count}";
     }
 
 
-
-    /// <summary>
-    // If the stone is engraved with the number 0, it is replaced by a stone engraved with the number 1.
-    // If the stone is engraved with a number that has an even number of digits, it is replaced by two stones. The left half of the digits are engraved on the new left stone, and the right half of the digits are engraved on the new right stone. (The new numbers don't keep extra leading zeroes: 1000 would become stones 10 and 0.)
-    // If none of the other rules apply, the stone is replaced by a new stone; the old stone's number multiplied by 2024 is engraved on the new stone.
-    /// </summary>
-    public long[] Blink(long[] stones)
+    public string SolvePartTwo(string[] input)
     {
-        var newListOfStones = new List<long>();
 
-        foreach (var stone in stones)
+        //Input has only one line
+        var listStones = input[0].Split(" ").Select(long.Parse).ToArray();
+        var dicStones = new Dictionary<long, long>();
+        foreach (var stone in listStones)
         {
-            if (stone == 0)
+            if (dicStones.ContainsKey(stone))
             {
-                newListOfStones.Add(1);
-            }
-            else if (stone.ToString().Length % 2 == 0)
-            {
-                var sizeOfDivision = stone.ToString().Length / 2;
-                var left = long.Parse(stone.ToString().Substring(0, sizeOfDivision));
-                var right = long.Parse(stone.ToString().Substring(sizeOfDivision));
-                newListOfStones.Add(left);
-                newListOfStones.Add(right);
+                dicStones[stone] += 1;
             }
             else
             {
-                newListOfStones.Add(stone * 2024);
+                dicStones[stone] = 1;
+            }
+        } 
+
+        for (long j = 0; j < 75; j++)
+        {
+            dicStones = Blink(dicStones);
+        }
+        var count = dicStones.Values.Sum();;
+
+        return $"{count}";
+    }
+
+    public Dictionary<long, long> Blink(Dictionary<long, long> stones)
+    {
+        var newStones = new Dictionary<long, long>();
+
+        foreach (var stone in stones)
+        {
+            if (stone.Key == 0)
+            {
+                if (newStones.ContainsKey(1))
+                {
+                    newStones[1] += stone.Value;
+                }
+                else
+                {
+                    newStones[1] = stone.Value;
+                }
+            }
+            else if (stone.Key.ToString().Length % 2 == 0)
+            {
+                var sizeOfDivision = stone.Key.ToString().Length / 2;
+                var left = long.Parse(stone.Key.ToString().Substring(0, sizeOfDivision));
+                var right = long.Parse(stone.Key.ToString().Substring(sizeOfDivision));
+
+                if (newStones.ContainsKey(left))
+                {
+                    newStones[left] += stone.Value;
+                }
+                else
+                {
+                    newStones[left] = stone.Value;
+                }
+
+                if (newStones.ContainsKey(right))
+                {
+                    newStones[right] += stone.Value;
+                }
+                else
+                {
+                    newStones[right] = stone.Value;
+                }
+            }
+            else
+            {
+                var newStone = stone.Key * 2024;
+                if (newStones.ContainsKey(newStone))
+                {
+                    newStones[newStone] += stone.Value;
+                }
+                else
+                {
+                    newStones[newStone] = stone.Value;
+                }
             }
         }
 
-        return newListOfStones.ToArray();
+        return newStones;
     }
+
 }

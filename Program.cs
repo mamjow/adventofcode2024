@@ -2,7 +2,7 @@
 using App;
 
 var mode = Environment.GetEnvironmentVariable("APP_MODE");
-int dayNumber = 11;
+int dayNumber = 12;
 var parsed = true;
 var input = dayNumber.ToString();
 
