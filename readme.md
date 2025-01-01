@@ -13,7 +13,7 @@
 |[Day 9: Disk Fragmenter](https://adventofcode.com/2024/day/9)    | [🔒](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day9.cs)   | C#       | :question: :question: | 
 |[Day 10: Hoof It](https://adventofcode.com/2024/day/10)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day10.cs)   | C#       | :star: :star: | 
 |[Day 11: Plutonian Pebbles](https://adventofcode.com/2024/day/11)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day11.cs)   | C#       | :star: :star: | 
-|[Day 12: Garden Groups](https://adventofcode.com/2024/day/12)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day12.cs)   | C#       | :star: :star: | 
+|[Day 12: Garden Groups](https://adventofcode.com/2024/day/12)    | [🔑](https://github.com/mamjow/adventofcode2024/blob/main/Days/Day12.cs)   | C#       | :star:  | 
 
 
 ![track](img.svg)
