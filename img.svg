@@ -142,20 +142,21 @@
 <a aria-label="Day 10, two stars"  class="calendar-day10 calendar-verycomplete">       <span class="calendar-color-w">|</span>------- <span class="calendar-color-w">|</span>        <span class="calendar-color-w">|</span>   <span class="calendar-color-3a">/\</span> <span class="calendar-color-3i">.'</span><span class="calendar-color-w">|</span>    <span class="calendar-color-w">|</span><span class="calendar-color-3w">'''</span><span class="calendar-color-1w1">~~~~~</span><span class="calendar-color-w">|</span>  <span class="calendar-day">10</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 11, two stars" class="calendar-day11 calendar-verycomplete">       <span class="calendar-color-w">|</span><span class="calendar-color-0l">.......</span><span class="calendar-color-0r">|</span><span class="calendar-color-w">|</span>        <span class="calendar-color-w">|</span><span class="calendar-color-3a">/\</span> <span class="calendar-color-3i">..'</span>  <span class="calendar-color-w">|</span>    <span class="calendar-color-w">|</span> <span class="calendar-color-1w2">.</span> <span class="calendar-color-1s">.</span> <span class="calendar-color-1w2">.</span> <span class="calendar-color-1w2">'</span><span class="calendar-color-w">|</span>  <span class="calendar-day">11</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 12, one star"  class="calendar-day12 calendar-complete">       |  -  -  |        |''':::::|    |~ .     |  <span class="calendar-day">12</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<span aria-hidden="true" class="calendar-day13">                                                   <span class="calendar-day">13</span></span>
-<span aria-hidden="true" class="calendar-day14">                                                   <span class="calendar-day">14</span></span>
-<span aria-hidden="true" class="calendar-day15">                                                   <span class="calendar-day">15</span></span>
-<span aria-hidden="true" class="calendar-day16">                                                   <span class="calendar-day">16</span></span>
-<span aria-hidden="true" class="calendar-day17">                                                   <span class="calendar-day">17</span></span>
-<span aria-hidden="true" class="calendar-day18">                                                   <span class="calendar-day">18</span></span>
-<span aria-hidden="true" class="calendar-day19">                                                   <span class="calendar-day">19</span></span>
-<span aria-hidden="true" class="calendar-day20">                                                   <span class="calendar-day">20</span></span>
-<span aria-hidden="true" class="calendar-day21">                                                   <span class="calendar-day">21</span></span>
-<span aria-hidden="true" class="calendar-day22">                                                   <span class="calendar-day">22</span></span>
-<span aria-hidden="true" class="calendar-day23">                                                   <span class="calendar-day">23</span></span>
-<span aria-hidden="true" class="calendar-day24">                                                   <span class="calendar-day">24</span></span>
-<span aria-hidden="true" class="calendar-day25">                                                   <span class="calendar-day">25</span></span>
-        </pre>
+<a aria-label="Day 13" href="/2024/day/13" class="calendar-day13">       |        |        |        |    |        |  <span class="calendar-day">13</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 14" href="/2024/day/14" class="calendar-day14">       |        |        |        |    |        |  <span class="calendar-day">14</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 15" href="/2024/day/15" class="calendar-day15">       |        |        |        |    |        |  <span class="calendar-day">15</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 16" href="/2024/day/16" class="calendar-day16">       |        |        |        |    |        |  <span class="calendar-day">16</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 17" href="/2024/day/17" class="calendar-day17">       |        |        |        |    |        |  <span class="calendar-day">17</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 18" href="/2024/day/18" class="calendar-day18">       |        |        |        |    |        |  <span class="calendar-day">18</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 19" href="/2024/day/19" class="calendar-day19">       |        |        |        |    |        |  <span class="calendar-day">19</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 20" href="/2024/day/20" class="calendar-day20">       |        |        |        '.  .'        |  <span class="calendar-day">20</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 21" href="/2024/day/21" class="calendar-day21">.------'        '------. |          ''          |  <span class="calendar-day">21</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 22" href="/2024/day/22" class="calendar-day22">|                      | |                      |  <span class="calendar-day">22</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 23" href="/2024/day/23" class="calendar-day23">|                      | |                      |  <span class="calendar-day">23</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 24" href="/2024/day/24" class="calendar-day24">|                      | |                      |  <span class="calendar-day">24</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 25" href="/2024/day/25" class="calendar-day25">|                      | '-.                  .-'  <span class="calendar-day">25</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+'----------------------'   '------------------'         
+</pre>
     </div>
   </foreignObject>
 </svg>
